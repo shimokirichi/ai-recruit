@@ -1,0 +1,10 @@
+openai
+python-dateutil
+autopep8
+coverage
+flake8
+freezegun
+pytest
+testfixtures
+Flask==2.3.3
+pdfminer.six

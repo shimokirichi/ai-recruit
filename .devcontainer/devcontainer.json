@@ -1,0 +1,73 @@
+{
+    "name": "ai-recruit",
+    "dockerComposeFile": "../compose.yaml",
+    "service": "python",
+    "workspaceFolder": "/usr/local/ai-recruit",
+    "remoteEnv": {
+        "PYTHONPATH": "ai-recruit",
+        "ENV": "unittest"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "codezombiech.gitignore",
+                "github.copilot",
+                "github.vscode-pull-request-github",
+                "ibm.output-colorizer",
+                "mhutchie.git-graph",
+                "ms-python.flake8",
+                "ms-python.isort",
+                "ms-python.python",
+                "nickdemayo.vscode-json-editor",
+                "njpwerner.autodocstring",
+                "pkief.material-icon-theme",
+                "redhat.vscode-yaml",
+                "timonwong.shellcheck",
+                "visualstudioexptteam.vscodeintellicode"
+            ],
+            "settings": {
+                "editor.bracketPairColorization.enabled": true,
+                "editor.formatOnSave": true,
+                "editor.formatOnPaste": true,
+                "editor.guides.bracketPairs": true,
+                "extensions.ignoreRecommendations": true,
+                "files.eol": "\n",
+                "files.insertFinalNewline": true,
+                "files.trimTrailingWhitespace": true,
+                "python.analysis.extraPaths": [
+                    "./ai-recruit"
+                ],
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.formatting.autopep8Path": "/usr/local/bin/autopep8",
+                "python.formatting.autopep8Args": [
+                    "--ignore=E70",
+                    "--max-line-length=120"
+                ],
+                "python.languageServer": "Default",
+                "python.linting.flake8Args": [
+                    "--ignore=E501"
+                ],
+                "python.linting.flake8Enabled": true,
+                "python.linting.pylintEnabled": false,
+                "python.testing.pytestArgs": [
+                    "tests"
+                ],
+                "python.testing.pytestEnabled": true,
+                "python.testing.unittestEnabled": false,
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "/bin/bash"
+                    }
+                },
+                "[python]": {
+                    "editor.codeActionsOnSave": {
+                        "source.organizeImports": true
+                    },
+                    "editor.defaultFormatter": "ms-python.python",
+                    "editor.tabSize": 4
+                }
+            }
+        }
+    }
+}

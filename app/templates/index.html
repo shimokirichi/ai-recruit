@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BETA Team</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="container">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">Upload Resume and Analysis</h2>
+        <form id="upload-form" class="bg-white shadow rounded-lg p-8 flex flex-col" enctype="multipart/form-data">
+            <input type="file" name="file" accept="application/pdf" class="mb-4" required>
+            <button type="submit"
+                class="px-6 py-2 mx-auto text-white bg-blue-500 hover:bg-blue-600 rounded focus:outline-none">Upload and Analysis</button>
+        </form>
+        <div id="summary-container" class="hidden mt-6">
+            <div id="summary" class="p-4 bg-gray-200 rounded-lg text-gray-700"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData
+            });
+            document.getElementById('summary-container').style.display = 'none'; // Hide the summary container
+
+            if (response.ok) {
+                const result = await response.json();
+                const summaryElement = document.getElementById('summary');
+
+                summaryElement.innerHTML = result.summary
+                document.getElementById('summary-container').style.display = 'block'; // Show the summary container
+            } else {
+                const result = await response.json();
+                alert('Error: ' + result.error);
+            }
+        });
+
+    </script>
+</body>
+
+</html>
