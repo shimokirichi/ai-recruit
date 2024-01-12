@@ -11,7 +11,7 @@ services:
       - "5000:5000" # `<ホストのポート>:<コンテナのポート>` の形式
     environment:
       - FLASK_ENV=development
-      - OPENAI_API_KEY=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
+      - OPENAI_API_KEY=<<YOUR_KEY>>
     volumes:
       - ./app:/app # ローカルのディレクトリをコンテナにマウント（オプション）
       - vscode-server-extensions:/root/.vscode-server/extensions
